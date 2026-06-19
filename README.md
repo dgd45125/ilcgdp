@@ -43,7 +43,32 @@ python main.py  --train_model
 ```
 PyTorch models and a training log are stored in `analysis_dir/models`.
 
-
+## Beam Parse a CoNLL File
+Takes `--beam_size` and `--model_number` arguments to parse the CoNLL-formatted file specified by `--conll_file_to_parse`.
+From the `ilcgdp` directory, e.g.:
+```
+python main.py  --beam_parse_conll
+                --analysis_dir ../en_gum-ud
+                --train_file ../UD_data/UD_English-GUM-master/en_gum-ud-train.conllu
+                --conll_file_to_parse ../UD_data/UD_English-GUM-master/en_gum-ud-dev.conllu
+                --beam_size 2
+                --model_number 26
+                --show_cuda_device_details
+```
+Parsing can also be split by sentence index using the ``--start_sentence_index` and `--end_sentence_index` arguments, in order to make maximum use of computing (GPU) resources.
+From the `ilcgdp` directory, e.g.:
+```
+python main.py  --beam_parse_conll
+                --analysis_dir ../en_gum-ud
+                --train_file ../UD_data/UD_English-GUM-master/en_gum-ud-train.conllu
+                --conll_file_to_parse ../UD_data/UD_English-GUM-master/en_gum-ud-dev.conllu
+                --start_sentence_index 0
+                --end_sentence_index 425
+                --beam_size 16
+                --model_number 26
+                --show_cuda_device_details
+```
+ One example use case is splitting parsing into multiple separate jobs when the beam size is increased, in order to reduce wall time cost.
 
 
 
