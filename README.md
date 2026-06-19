@@ -72,8 +72,13 @@ One example use case is splitting parsing into multiple separate jobs when the b
 ```
 cat en_gum-ud-dev_beam_size16_model26_0_394 en_gum-ud-dev_beam_size16_model26_394_788 en_gum-ud-dev_beam_size16_model26_788_1182 en_gum-ud-dev_beam_size16_model26_1182_1575 > en_gum-ud-dev_beam_size16_model26_0_1575.conllx
 ```
-## Evaluate System Parses against Gold Parses
 
+## Evaluate System Parses against Gold Parses
+Evaluate a system-parse CoNLL file against a gold- or reference-parse CoNLL file in terms of labelled and unlabelled attachment score.
+From the `ilcgdp` directory, e.g.,
+```
+
+```
 
 
 
