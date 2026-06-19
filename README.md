@@ -55,7 +55,7 @@ python main.py  --beam_parse_conll
                 --model_number 26
                 --show_cuda_device_details
 ```
-Parsing can also be split by sentence index using the ``--start_sentence_index` and `--end_sentence_index` arguments, in order to make maximum use of computing (GPU) resources.
+Parsing can also be split by sentence index using the `--start_sentence_index` and `--end_sentence_index` arguments, in order to make maximum use of computing (GPU) resources.
 From the `ilcgdp` directory, e.g.:
 ```
 python main.py  --beam_parse_conll
