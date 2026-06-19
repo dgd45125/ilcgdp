@@ -42,7 +42,6 @@ Models and a training log are stored in `analysis_dir/models`.
 
 
 ## Full Help Menu
-```
 usage: main.py [-h] [--train_file TRAIN_FILE] [--dev_file DEV_FILE] [--test_file TEST_FILE] [--analysis_dir ANALYSIS_DIR] [--prepare_features]
                [--train_model] [--num_epochs NUM_EPOCHS] [--batch_size BATCH_SIZE] [--word_embedding_size WORD_EMBEDDING_SIZE]
                [--dep_embedding_size DEP_EMBEDDING_SIZE] [--node_size NODE_SIZE] [--spine_size SPINE_SIZE] [--hidden_size HIDDEN_SIZE] [--save_all_models]
