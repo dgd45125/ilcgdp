@@ -14,7 +14,7 @@ PyTorch will automatically make use of any single compatible accelerator.
 - NumPy
 
 ## Cython Compilation
-From the ilcgdp directory:
+From the `ilcgdp` directory:
 ```
 python setup.py build_ext --inplace
 ```
