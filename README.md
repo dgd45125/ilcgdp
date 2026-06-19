@@ -20,7 +20,7 @@ python setup.py build_ext --inplace
 ```
 
 ## Prepare and Save the Training and Development Set Features
-From the ilcgdp directory, e.g.: 
+From the `ilcgdp` directory, e.g.: 
 ```
 python main.py  --prepare_features
                 --analysis_dir ../en_gum-ud
@@ -32,7 +32,7 @@ This will create the analysis directory if it doesn't already exist.
 ## Train a Model
 Accepts `--num_epochs` `--batch_size` `--word_embedding_size` `--dep_embedding_size` `--node_size` `--spine_size` and `--hidden_size` arguments. If not provided, reasonable defaults are used. `--save_all_models` saves every epoch checkpoint, rather than just models that improve one of the losses or labeled transition prediction accuracy.
 
-From the ilcgdp directory, e.g.:
+From the `ilcgdp` directory, e.g.:
 ```
 python main.py  --train_model
                 --num_epochs 50
