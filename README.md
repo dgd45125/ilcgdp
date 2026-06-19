@@ -77,7 +77,7 @@ cat en_gum-ud-dev_beam_size16_model26_0_394 en_gum-ud-dev_beam_size16_model26_39
 Evaluate a system-parse CoNLL file against a gold- or reference-parse CoNLL file, in terms of labelled and unlabelled attachment score.
 From the `ilcgdp` directory, e.g.,
 ```
-python main.py --evaluate_conll
+python main.py  --evaluate_conll
                 --system_parses ../en_gum-ud/en_gum-ud-dev_beam_size2_model26_0_1575.conllx
                 --gold_parses ../UD_data/UD_English-GUM-master/en_gum-ud-dev.conllu
 ```
