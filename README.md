@@ -42,13 +42,13 @@ Models and a training log are stored in `analysis_dir/models`.
 
 
 ## Full Help Menu
-usage: main.py [-h] [--train_file TRAIN_FILE] [--dev_file DEV_FILE] [--test_file TEST_FILE] [--analysis_dir ANALYSIS_DIR] [--prepare_features]
-               [--train_model] [--num_epochs NUM_EPOCHS] [--batch_size BATCH_SIZE] [--word_embedding_size WORD_EMBEDDING_SIZE]
-               [--dep_embedding_size DEP_EMBEDDING_SIZE] [--node_size NODE_SIZE] [--spine_size SPINE_SIZE] [--hidden_size HIDDEN_SIZE] [--save_all_models]
-               [--beam_parse_conll] [--conll_file_to_parse CONLL_FILE_TO_PARSE] [--start_sentence_index START_SENTENCE_INDEX]
-               [--end_sentence_index END_SENTENCE_INDEX] [--beam_size BEAM_SIZE] [--model_number MODEL_NUMBER] [--evaluate_conll]
-               [--system_parses SYSTEM_PARSES] [--gold_parses GOLD_PARSES] [--eval_log_file EVAL_LOG_FILE] [--parse_sentences]
-               [--sentences_to_parse SENTENCES_TO_PARSE] [--show_cuda_device_details]
+>usage: main.py [-h] [--train_file TRAIN_FILE] [--dev_file DEV_FILE] [--test_file TEST_FILE] [--analysis_dir ANALYSIS_DIR] [--prepare_features]
+>               [--train_model] [--num_epochs NUM_EPOCHS] [--batch_size BATCH_SIZE] [--word_embedding_size WORD_EMBEDDING_SIZE]
+>              [--dep_embedding_size DEP_EMBEDDING_SIZE] [--node_size NODE_SIZE] [--spine_size SPINE_SIZE] [--hidden_size HIDDEN_SIZE] [--save_all_models]
+>               [--beam_parse_conll] [--conll_file_to_parse CONLL_FILE_TO_PARSE] [--start_sentence_index START_SENTENCE_INDEX]
+>               [--end_sentence_index END_SENTENCE_INDEX] [--beam_size BEAM_SIZE] [--model_number MODEL_NUMBER] [--evaluate_conll]
+>               [--system_parses SYSTEM_PARSES] [--gold_parses GOLD_PARSES] [--eval_log_file EVAL_LOG_FILE] [--parse_sentences]
+>               [--sentences_to_parse SENTENCES_TO_PARSE] [--show_cuda_device_details]
 
 options:
   -h, --help            show this help message and exit
