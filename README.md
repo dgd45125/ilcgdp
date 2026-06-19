@@ -74,11 +74,27 @@ cat en_gum-ud-dev_beam_size16_model26_0_394 en_gum-ud-dev_beam_size16_model26_39
 ```
 
 ## Evaluate System Parses against Gold Parses
-Evaluate a system-parse CoNLL file against a gold- or reference-parse CoNLL file in terms of labelled and unlabelled attachment score.
+Evaluate a system-parse CoNLL file against a gold- or reference-parse CoNLL file, in terms of labelled and unlabelled attachment score.
 From the `ilcgdp` directory, e.g.,
 ```
-
+python main.py --evaluate_conll
+                --system_parses ../en_gum-ud/en_gum-ud-dev_beam_size2_model26_0_1575.conllx
+                --gold_parses ../UD_data/UD_English-GUM-master/en_gum-ud-dev.conllu
 ```
+
+
+## Parse Arbitrary Sentences and Compute Word-by-Word Complexity Metrics
+`--sentences_to_parse` is a .txt file with one sentence per line. Sentences should already be tokenized --- space-separated --- according to the tokenizaton scheme of the training corpus. The input will automatically be downcased and UNK-ified. From the `ilcgdp` directory, e.g.,
+```
+python main.py  --parse_sentences
+                --analysis_dir ../en_gum-ud
+                --train_file ../UD_data/UD_English-GUM-master/en_gum-ud-train.conllu
+                --sentences_to_parse ../en_gum-ud/my_sentences.txt
+                --beam_size 64
+                --model_number 26
+                --show_cuda_device_details
+```
+One output file records the CoNLL-formateed dependency parses while anothe records word-by-word complexity metrics. Currently, only surprisal is implemented --- as the negative log ratio of the current to former prefix probability, in bits, for beams resulting from SHIFT actions.
 
 
 
