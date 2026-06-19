@@ -42,3 +42,63 @@ Models and a training log are stored in `analysis_dir/models`.
 
 
 ## Full Help Menu
+```
+usage: main.py [-h] [--train_file TRAIN_FILE] [--dev_file DEV_FILE] [--test_file TEST_FILE] [--analysis_dir ANALYSIS_DIR] [--prepare_features]
+               [--train_model] [--num_epochs NUM_EPOCHS] [--batch_size BATCH_SIZE] [--word_embedding_size WORD_EMBEDDING_SIZE]
+               [--dep_embedding_size DEP_EMBEDDING_SIZE] [--node_size NODE_SIZE] [--spine_size SPINE_SIZE] [--hidden_size HIDDEN_SIZE] [--save_all_models]
+               [--beam_parse_conll] [--conll_file_to_parse CONLL_FILE_TO_PARSE] [--start_sentence_index START_SENTENCE_INDEX]
+               [--end_sentence_index END_SENTENCE_INDEX] [--beam_size BEAM_SIZE] [--model_number MODEL_NUMBER] [--evaluate_conll]
+               [--system_parses SYSTEM_PARSES] [--gold_parses GOLD_PARSES] [--eval_log_file EVAL_LOG_FILE] [--parse_sentences]
+               [--sentences_to_parse SENTENCES_TO_PARSE] [--show_cuda_device_details]
+
+options:
+  -h, --help            show this help message and exit
+  --train_file TRAIN_FILE
+                        training set dependency data, in conll format
+  --dev_file DEV_FILE   development set dependency data, in conll format
+  --test_file TEST_FILE
+                        test set dependency data, in conll format
+  --analysis_dir ANALYSIS_DIR
+                        directory to store features, models, logs, etc.
+  --prepare_features    prepare and save the tabular training and dev feature data
+  --train_model         train a neural net for locally-normalized transition prediction and language modeling
+  --num_epochs NUM_EPOCHS
+                        number of epochs to train the model
+  --batch_size BATCH_SIZE
+                        training batch size
+  --word_embedding_size WORD_EMBEDDING_SIZE
+                        word embedding size
+  --dep_embedding_size DEP_EMBEDDING_SIZE
+                        dependency embedding size
+  --node_size NODE_SIZE
+                        node size
+  --spine_size SPINE_SIZE
+                        right spine size
+  --hidden_size HIDDEN_SIZE
+                        hidden size
+  --save_all_models     saves the model after every epoch; default is to only save if an improvement is made on one of the evaluation metrics
+  --beam_parse_conll    beam parse the sentence of a conll file
+  --conll_file_to_parse CONLL_FILE_TO_PARSE
+                        connl file to beam parse
+  --start_sentence_index START_SENTENCE_INDEX
+                        sentence index to begin parsing at
+  --end_sentence_index END_SENTENCE_INDEX
+                        sentence index to stop parsing at
+  --beam_size BEAM_SIZE
+                        beam size
+  --model_number MODEL_NUMBER
+                        epoch number for the model to load for parsing
+  --evaluate_conll      evaluate LAS and UAS for system parses, against the gold-standard parses, excluding punctuation
+  --system_parses SYSTEM_PARSES
+                        CoNLL-formatted system output file to be evaluated
+  --gold_parses GOLD_PARSES
+                        CoNLL-formatted gold-standard parses
+  --eval_log_file EVAL_LOG_FILE
+                        file name to write the evaluation details to
+  --parse_sentences     parse sentences in a text file. separately writes out parses and word-by-word complexity metrics
+  --sentences_to_parse SENTENCES_TO_PARSE
+                        .txt file containing sentences to parse, one per line and pre-tokenized (space-separated) in accoradance with your
+                        language/treebank
+  --show_cuda_device_details
+                        show CUDA device details
+```
