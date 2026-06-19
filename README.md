@@ -100,4 +100,3 @@ options:
                         language/treebank
   --show_cuda_device_details
                         show CUDA device details
-```
