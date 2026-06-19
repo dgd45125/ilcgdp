@@ -16,3 +16,18 @@ From the ilcgdp directory:
 ```
 python setup.py build_ext --inplace
 ```
+
+## Prepare and Save the Training and Development Set Features
+From the ilcgdp directory, e.g.: 
+```
+python main.py --prepare_features --analysis_dir ../ptb_ud --train_file ../ptb_dependencies/universal_dependencies/train/ptb_train.conllu --dev_file  ../ptb_dependencies/universal_dependencies/dev/ptb_dev.conllu
+```
+
+## Train a Model
+Takes `-- num_epochs` `-- batch_size` 
+
+
+From the ilcgdp directory, e.g.:
+```
+python main.py  --train_model --num_epochs 50 --analysis_dir ../ptb_ud --train_file ../ptb_dependencies/universal_dependencies/train/ptb_train.conllu --dev_file  ../ptb_dependencies/universal_dependencies/dev/ptb_dev.conllu --show_cuda_device_details
+``
