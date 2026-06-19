@@ -68,7 +68,7 @@ python main.py  --beam_parse_conll
                 --model_number 26
                 --show_cuda_device_details
 ```
- One example use case is splitting parsing into multiple separate jobs when the beam size is increased, in order to reduce wall time cost.
+One example use case is splitting parsing into multiple separate jobs when the beam size is increased, in order to reduce wall time cost. Remember to concatenate your files together once you are finished, e.g.: `cat en_gum-ud-dev_beam_size16_model26_0_394 en_gum-ud-dev_beam_size16_model26_394_788 en_gum-ud-dev_beam_size16_model26_788_1182 en_gum-ud-dev_beam_size16_model26_1182_1575 > en_gum-ud-dev_beam_size16_model26_0_1575.conllx`.
 
 
 
