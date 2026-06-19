@@ -94,7 +94,7 @@ python main.py  --parse_sentences
                 --model_number 26
                 --show_cuda_device_details
 ```
-One output file records the CoNLL-formateed dependency parses while anothe records word-by-word complexity metrics. Currently, only surprisal is implemented --- as the negative log ratio of the current to former prefix probability, in bits, for beams resulting from SHIFT actions.
+One output file records the CoNLL-formated dependency parses, while anothe records word-by-word complexity metrics. Currently, only surprisal is implemented --- as the negative log ratio of the current to former prefix probability, in bits, for beams resulting from SHIFT actions.
 
 
 
