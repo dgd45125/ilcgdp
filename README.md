@@ -20,7 +20,10 @@ python setup.py build_ext --inplace
 ## Prepare and Save the Training and Development Set Features
 From the ilcgdp directory, e.g.: 
 ```
-python main.py  --prepare_features --analysis_dir ../en_gum-ud --train_file ../UD_data/UD_English-GUM-master/en_gum-ud-train.conllu --dev_file  ../UD_data/UD_English-GUM-master/en_gum-ud-dev.conllu
+python main.py  --prepare_features
+                --analysis_dir ../en_gum-ud
+                --train_file ../UD_data/UD_English-GUM-master/en_gum-ud-train.conllu
+                --dev_file  ../UD_data/UD_English-GUM-master/en_gum-ud-dev.conllu
 ```
 This will create the analysis directory if it doesn't already exist.
 
