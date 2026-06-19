@@ -20,7 +20,7 @@ python setup.py build_ext --inplace
 ```
 
 ## Prepare and Save the Training and Development Set Features
-From the `ilcgdp` directory, e.g.: 
+From the `ilcgdp` directory, e.g.,
 ```
 python main.py  --prepare_features
                 --analysis_dir ../en_gum-ud
@@ -32,7 +32,7 @@ This will create the analysis directory if it doesn't already exist.
 ## Train a Model
 Accepts `--num_epochs`, `--batch_size`, `--word_embedding_size`, `--dep_embedding_size`, `--node_size`, `--spine_size`, and `--hidden_size` arguments for the neural network and training process. If not provided, reasonable defaults are used. `--save_all_models` saves every epoch checkpoint, rather than just models that improve one of the losses or labeled transition prediction accuracy.
 
-From the `ilcgdp` directory, e.g.:
+From the `ilcgdp` directory, e.g.,
 ```
 python main.py  --train_model
                 --num_epochs 50
@@ -56,7 +56,7 @@ python main.py  --beam_parse_conll
                 --show_cuda_device_details
 ```
 Parsing can also be split by sentence index using the `--start_sentence_index` and `--end_sentence_index` arguments, in order to make maximum use of computing (GPU) resources.
-From the `ilcgdp` directory, e.g.:
+From the `ilcgdp` directory, e.g.,
 ```
 python main.py  --beam_parse_conll
                 --analysis_dir ../en_gum-ud
@@ -68,10 +68,11 @@ python main.py  --beam_parse_conll
                 --model_number 26
                 --show_cuda_device_details
 ```
-One example use case is splitting parsing into multiple separate jobs when the beam size is increased, in order to reduce wall time cost. Remember to concatenate your files together once you are finished, e.g.: 
+One example use case is splitting parsing into multiple separate jobs when the beam size is increased, in order to reduce wall time cost. Remember to concatenate your files together once you are finished, e.g., 
 ```
 cat en_gum-ud-dev_beam_size16_model26_0_394 en_gum-ud-dev_beam_size16_model26_394_788 en_gum-ud-dev_beam_size16_model26_788_1182 en_gum-ud-dev_beam_size16_model26_1182_1575 > en_gum-ud-dev_beam_size16_model26_0_1575.conllx
 ```
+## Evaluate System Parses against Gold Parses
 
 
 
