@@ -43,8 +43,7 @@ if __name__=='__main__':
     parser.add_argument('--evaluate_conll', help="evaluate LAS and UAS for system parses, against the gold-standard parses, excluding punctuation", action="store_true")
     parser.add_argument('--system_parses', help="CoNLL-formatted system output file to be evaluated")
     parser.add_argument('--gold_parses', help="CoNLL-formatted gold-standard parses")
-    parser.add_argument('--eval_log_file', help="file name to write the evaluation details to")
-
+    
     parser.add_argument('--parse_sentences', help="parse sentences in a text file. separately writes out parses and word-by-word complexity metrics", action = "store_true")
     parser.add_argument('--sentences_to_parse', help='.txt file containing sentences to parse, one per line and pre-tokenized (space-separated) in accoradance with your language/treebank')
 
@@ -248,19 +247,74 @@ if __name__=='__main__':
         if not args.gold_parses:
             print("A CoNLL gold standard parses file is required with --gold_parses in order to evaluate.")
             sys.exit()
-        if not args.eval_log_file:
-            print("A file name to write the evaluation details to is required with --eval_log_file in order to evaluate.")
-            sys.exit()
 
+        print(f"\nReading gold-standard parses at {args.gold_parses}")
+        #read in the gold standard sentences
+        f = open(args.gold_parses)
+        content = f.read()
+        
+        gold_sentences = []
+        current_sentence = []
+        for line in content.split("\n"):
+            if not line ==''  and not line[0] == '#':
+                current_sentence.append(line)
+                
+            if line =='' and current_sentence:        
+                gold_sentences.append(current_sentence)
+                current_sentence = []
+        print(f"There are {len(gold_sentences)} gold-standard parses in this file.\n")
+        
+        
+        
+        print(f"Reading the system parses at {args.system_parses}")
+        #read in the machine parse
+        f = open(args.system_parses)
+        content = f.read()
+        
+        machine_sentences = []
+        current_sentence = []
+        for line in content.split("\n"):
+            if not line =='':
+                current_sentence.append(line)
             
-        print(f"\nUsing the ../eval.pl script to evaluate System parses: {args.system_parses}, against Gold standard parses: {args.gold_parses}.")
-        print(f"Details will be written to: {args.eval_log_file}\n")
+            if line =='' and current_sentence:
+                machine_sentences.append(current_sentence)
+                current_sentence = []
+        print(f"There are {len(machine_sentences)} system parses in this file.\n")
+        
+        
+        
+        print("Only scoring as many sentences as are in the system parse file.")
+        print("Dependencies with the 'punct' label are and tokens belonging to string.punctuation are not being evaluated.\n")
+        
+        #ONLY EVALUATE AS MUCH AS HAS BEEN PARSED FOR MACHINE SENTENCES
+        total = 0
+        unlabeled_correct = 0
+        labeled_correct = 0
+        
+        for i in range(len(machine_sentences)):
+            for j in range(len(machine_sentences[i])):
+                
+                #don't evaluate punctuation, a la Buys and Blunsom
+                if gold_sentences[i][j].split("\t")[7] =='punct' or gold_sentences[i][j].split("\t")[1] in string.punctuation:
+                    continue
+                
+                if gold_sentences[i][j].split("\t")[6] == machine_sentences[i][j].split("\t")[6]:
+                    unlabeled_correct+=1
+                    if gold_sentences[i][j].split("\t")[7] == machine_sentences[i][j].split("\t")[7]:
+                        labeled_correct+=1
+                #else:
+                #    print(f"There was a disagreement in sentence: {i}, word: {j}")
+                total +=1
+                
+        print(f"Total number of dependencies: {total}\n")
+        print(f"Unlabeled Correct: {unlabeled_correct}")
+        print(f"Unlabeled Attachment: {round(unlabeled_correct/total,4)}\n")
+        
+        print(f"Labeled Correct: {labeled_correct}")
+        print(f"Labeled Attachment: {round(labeled_correct/total,4)}")
 
-        try:
-            result = subprocess.run(["perl", "../eval.pl", "-o", args.eval_log_file, "-g", args.gold_parses, "-s", args.system_parses], check=True, capture_output=True, text=True)
-        except subprocess.CalledProcessError as e:
-            print(f"../eval.pl failed with exit code {e.returncode}")
-            sys.exit()
+
      
         print("\n------------------------------------------------------------------------\n")
 
