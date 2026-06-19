@@ -22,13 +22,13 @@ From the ilcgdp directory, e.g.:
 ```
 python main.py  --prepare_features --analysis_dir ../en_gum-ud --train_file ../UD_data/UD_English-GUM-master/en_gum-ud-train.conllu --dev_file  ../UD_data/UD_English-GUM-master/en_gum-ud-dev.conllu
 ```
-This will create ``analysis_dir`` if it doesn't already exist.
+This will create the analysis directory if it doesn't already exist.
 
 ## Train a Model
-Takes `-- num_epochs` `-- batch_size` 
-
+Accepts `--num_epochs` `--batch_size` `--word_embedding_size` `--dep_embedding_size` `--node_size` `--spine_size` and `--hidden_size` arguments. If not provided, reasonable defaults are used. `--save_all_models` save each epoch checkpoint rather than just models that improve one of the losses or labeled transition prediction accuracy.
 
 From the ilcgdp directory, e.g.:
 ```
 python main.py  --train_model --num_epochs 50 --analysis_dir ../en_gum-ud --train_file ../UD_data/UD_English-GUM-master/en_gum-ud-train.conllu --dev_file  ../UD_data/UD_English-GUM-master/en_gum-ud-dev.conllu --show_cuda_device_details
-``
+```
+Models and a training log are stored in `analysis_dir/models`.
