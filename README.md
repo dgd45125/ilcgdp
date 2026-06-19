@@ -30,7 +30,7 @@ python main.py  --prepare_features
 This will create the analysis directory if it doesn't already exist.
 
 ## Train a Model
-Accepts `--num_epochs` `--batch_size` `--word_embedding_size` `--dep_embedding_size` `--node_size` `--spine_size` and `--hidden_size` arguments. If not provided, reasonable defaults are used. `--save_all_models` saves every epoch checkpoint, rather than just models that improve one of the losses or labeled transition prediction accuracy.
+Accepts `--num_epochs`, `--batch_size`, `--word_embedding_size`, `--dep_embedding_size`, `--node_size`, `--spine_size`, and `--hidden_size` arguments for the neural network and training process. If not provided, reasonable defaults are used. `--save_all_models` saves every epoch checkpoint, rather than just models that improve one of the losses or labeled transition prediction accuracy.
 
 From the `ilcgdp` directory, e.g.:
 ```
@@ -52,7 +52,7 @@ PyTorch models and a training log are stored in `analysis_dir/models`.
 ```
 usage: main.py [-h] [--train_file TRAIN_FILE] [--dev_file DEV_FILE] [--test_file TEST_FILE] [--analysis_dir ANALYSIS_DIR] [--prepare_features]
                [--train_model] [--num_epochs NUM_EPOCHS] [--batch_size BATCH_SIZE] [--word_embedding_size WORD_EMBEDDING_SIZE]
-              [--dep_embedding_size DEP_EMBEDDING_SIZE] [--node_size NODE_SIZE] [--spine_size SPINE_SIZE] [--hidden_size HIDDEN_SIZE] [--save_all_models]
+               [--dep_embedding_size DEP_EMBEDDING_SIZE] [--node_size NODE_SIZE] [--spine_size SPINE_SIZE] [--hidden_size HIDDEN_SIZE] [--save_all_models]
                [--beam_parse_conll] [--conll_file_to_parse CONLL_FILE_TO_PARSE] [--start_sentence_index START_SENTENCE_INDEX]
                [--end_sentence_index END_SENTENCE_INDEX] [--beam_size BEAM_SIZE] [--model_number MODEL_NUMBER] [--evaluate_conll]
                [--system_parses SYSTEM_PARSES] [--gold_parses GOLD_PARSES] [--eval_log_file EVAL_LOG_FILE] [--parse_sentences]
