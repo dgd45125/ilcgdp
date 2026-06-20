@@ -182,3 +182,6 @@ options:
   --show_cuda_device_details
                         show CUDA device details
 ```
+
+## Visualization and Debugging Notebook
+The notebook `ilcgdp/visualize_and_debug.ipynb` (requires Jupyter) is included for visulizing beam and Oracle parse traces, debugging, demonstrating some of the under-the-hood functionality, etc.
