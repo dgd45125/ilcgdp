@@ -110,7 +110,8 @@ python main.py  --parse_sentences
 > lost  Surp: 12.50  
 > her  Surp: 4.78  
 > way  Surp: 18.07  
-> .  Surp: 4.50  
+> .  Surp: 4.50
+
 One output file records the CoNLL-formated dependency parses, while anothe records word-by-word complexity metrics. Currently, only surprisal is implemented --- as the negative log ratio of the current to former prefix probability, in bits, for beams resulting from SHIFT actions.
 
 
