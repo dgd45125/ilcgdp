@@ -85,6 +85,9 @@ python main.py  --evaluate_conll
 
 ## Parse Arbitrary Sentences and Compute Word-by-Word Complexity Metrics
 `--sentences_to_parse` is a .txt file with one sentence per line. Sentences should already be tokenized --- space-separated --- according to the tokenizaton scheme of the training corpus. The input will automatically be downcased and UNK-ified. From the `ilcgdp` directory, e.g.,
+>
+>
+>
 ```
 python main.py  --parse_sentences
                 --analysis_dir ../en_gum-ud
